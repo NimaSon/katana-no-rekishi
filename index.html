@@ -5,77 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Путь Меча | Искусство Катаны</title>
     <style>
-        /* Основные стили */
+        /* --- Основные стили --- */
         body {
-            font-family: 'Helvetica Neue', sans-serif;
-            background-color: #1a1a1a;
-            color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212; /* Глубокий черный */
+            color: #e0e0e0;
             margin: 0;
             padding: 0;
             line-height: 1.6;
         }
 
-        /* Заголовок с эффектом */
+        /* --- Хедер --- */
         header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1590634999975-35a116f1943c?auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1618336753974-aae8e04506aa?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            height: 100vh;
+            height: 80vh; /* Чуть меньше экрана */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+            border-bottom: 4px solid #b91c1c;
         }
 
         h1 {
-            font-size: 4rem;
+            font-size: 5rem;
             margin: 0;
-            letter-spacing: 5px;
             text-transform: uppercase;
-            border-bottom: 3px solid #b91c1c; /* Красный акцент */
-            padding-bottom: 10px;
+            letter-spacing: 10px;
+            text-shadow: 2px 2px 10px #000;
         }
 
-        p.subtitle {
+        .subtitle {
             font-size: 1.5rem;
-            color: #ccc;
-            margin-top: 20px;
-            font-style: italic;
+            color: #b91c1c; /* Кроваво-красный */
+            margin-top: 10px;
+            font-weight: bold;
+            letter-spacing: 2px;
         }
 
-        /* Контент */
+        /* --- Контент --- */
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 50px 20px;
-        }
-
-        .section {
-            margin-bottom: 60px;
+            padding: 60px 20px;
         }
 
         h2 {
-            color: #b91c1c;
-            border-left: 5px solid #fff;
-            padding-left: 15px;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            color: #fff;
         }
 
-        .card {
-            background: #2a2a2a;
-            padding: 20px;
+        /* --- Стили для Эпох (Timeline Card) --- */
+        .era-card {
+            background: #1e1e1e;
+            border-left: 5px solid #b91c1c;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 0 10px 10px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .era-card:hover {
+            transform: translateX(10px); /* Сдвиг вправо при наведении */
+            background: #252525;
+        }
+
+        .era-title {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .era-date {
+            color: #888;
+            font-style: italic;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* --- Галерея --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
             border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            height: 250px;
         }
 
-        /* Футер */
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1); /* Увеличение фото */
+        }
+
+        /* --- Футер --- */
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 40px;
             background: #000;
-            color: #555;
-            font-size: 0.9rem;
+            color: #666;
+            margin-top: 50px;
+            border-top: 1px solid #333;
         }
     </style>
 </head>
@@ -83,35 +129,62 @@
 
     <header>
         <h1>Katana</h1>
-        <p class="subtitle">Душа самурая</p>
+        <p class="subtitle">NIHONTO HISTORY</p>
     </header>
 
     <div class="container">
-        <div class="section">
-            <h2>Что такое катана?</h2>
-            <p>Катана (яп. 刀) — длинный японский меч с изогнутым клинком, который стал символом самурайского сословия. Это не просто оружие, а произведение искусства, сочетающее в себе смертоносную остроту и невероятную красоту хамона (линии закалки).</p>
-        </div>
-
-        <div class="section">
-            <h2>Анатомия меча</h2>
-            <div class="card">
-                <ul>
-                    <li><strong>Цуба (Garda):</strong> Защита руки, часто украшенная искусной резьбой.</li>
-                    <li><strong>Хамон (Hamon):</strong> Узор на лезвии, образующийся при закалке.</li>
-                    <li><strong>Цука (Tsuka):</strong> Рукоять, обычно обтянутая кожей ската и шелковым шнуром.</li>
-                    <li><strong>Сая (Saya):</strong> Ножны, покрытые лаком.</li>
-                </ul>
+        
+        <section id="eras">
+            <h2>Четыре Эпохи Меча</h2>
+            
+            <div class="era-card">
+                <div class="era-title">Кото (Koto)</div>
+                <span class="era-date">800 — 1596 гг.</span>
+                <p>«Старые мечи». Золотой век японского оружейного дела. Мечи этого периода (особенно эпохи Камакура) считаются непревзойденными по качеству стали и красоте. Создавались для реальных войн.</p>
             </div>
-        </div>
 
-        <div class="section">
-            <h2>Легендарные кузнецы</h2>
-            <p>История помнит великих мастеров, таких как <strong>Масамунэ</strong>, чьи мечи считались символом спокойствия и мастерства, и <strong>Мурамаса</strong>, чьи клинки, по легенде, жаждали крови.</p>
-        </div>
+            <div class="era-card">
+                <div class="era-title">Синто (Shinto)</div>
+                <span class="era-date">1596 — 1781 гг.</span>
+                <p>«Новые мечи». Период Эдо. С наступлением мира изменилась технология: сталь стала ярче, но хамон (узор закалки) стал более декоративным. Мечи стали символом статуса самурая.</p>
+            </div>
+
+            <div class="era-card">
+                <div class="era-title">Синсинто (Shinshinto)</div>
+                <span class="era-date">1781 — 1876 гг.</span>
+                <p>«Новые новые мечи». Мастера пытались возродить утерянные традиции периода Кото. Мечи стали тяжелее, шире и длиннее, подражая древним клинкам.</p>
+            </div>
+
+            <div class="era-card">
+                <div class="era-title">Гендайто (Gendaito)</div>
+                <span class="era-date">1876 — Настоящее время</span>
+                <p>Современные мечи. После запрета на ношение мечей традиция сохранилась лишь благодаря энтузиастам. Сегодня это высокое искусство, охраняемое государством.</p>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2>Галерея</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1534234828563-025993049b4b?auto=format&fit=crop&w=600&q=80" alt="Katana handle">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1608652458021-a3f2955ec031?auto=format&fit=crop&w=600&q=80" alt="Samurai Armor">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1614713565985-79a83eb97c1d?auto=format&fit=crop&w=600&q=80" alt="Blade detail">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1514539079130-25950c84af65?auto=format&fit=crop&w=600&q=80" alt="Japanese Sword">
+                </div>
+            </div>
+        </section>
+
     </div>
 
     <footer>
-        Создано на GitHub Pages
+        <p>Создано для истинных ценителей бусидо.</p>
+        <p>2023-2025 &copy; Katana Project</p>
     </footer>
 
 </body>
