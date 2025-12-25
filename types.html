@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Виды Японских Мечей</title>
     <style>
-        /* --- Общие стили (как на главной) --- */
+        /* --- Общие стили --- */
         body {
             font-family: 'Segoe UI', Tahoma, sans-serif;
             background-color: #121212;
@@ -14,7 +14,7 @@
             padding: 0;
         }
 
-        /* --- Навигация --- */
+        /* Навигация */
         nav {
             background: #000;
             padding: 20px;
@@ -24,39 +24,33 @@
         nav a {
             color: #fff;
             text-decoration: none;
-            margin: 0 20px;
-            font-size: 1.2rem;
+            margin: 0 15px;
+            font-size: 1.1rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            font-weight: bold;
             transition: color 0.3s;
         }
-        nav a:hover {
-            color: #b91c1c;
-        }
+        nav a:hover { color: #b91c1c; }
 
-        /* --- Заголовок --- */
+        /* Заголовок */
         .page-header {
             text-align: center;
             padding: 60px 20px;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1599839575945-a9e5af0c3fa5?auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1599839575945-a9e5af0c3fa5?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
         }
 
-        h1 {
-            font-size: 3rem;
-            color: #fff;
-            margin: 0;
-            text-transform: uppercase;
-        }
+        h1 { font-size: 3rem; color: #fff; margin: 0; text-transform: uppercase; }
 
-        /* --- Сетка с мечами --- */
+        /* Контент */
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 40px 20px;
         }
 
+        /* Карточка меча */
         .sword-card {
             background: #1e1e1e;
             margin-bottom: 40px;
@@ -64,27 +58,27 @@
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
             display: flex;
-            flex-direction: column; /* На мобильных - колонка */
+            flex-direction: column;
         }
 
         @media (min-width: 768px) {
-            .sword-card {
-                flex-direction: row; /* На ПК - в ряд */
-            }
+            .sword-card { flex-direction: row; }
+            .sword-img-container { flex: 1; max-width: 40%; }
+            .sword-info { flex: 1; }
         }
 
-        .sword-img {
-            flex: 1;
+        /* Изображения */
+        .sword-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
             min-height: 300px;
-            background-size: cover;
-            background-position: center;
         }
 
-        .sword-info {
-            flex: 1;
-            padding: 30px;
-        }
-
+        /* Информация */
+        .sword-info { padding: 30px; }
+        
         h2 {
             color: #b91c1c;
             margin-top: 0;
@@ -101,67 +95,141 @@
             border-radius: 4px;
         }
 
-        /* --- Настройка картинок для каждого типа --- */
-        /* Здесь используются общие картинки, их лучше заменить на конкретные виды */
-        .img-katana { background-image: url('https://images.unsplash.com/photo-1618336753974-aae8e04506aa?auto=format&fit=crop&w=800&q=80'); }
-        .img-tachi { background-image: url('https://images.unsplash.com/photo-1590634999975-35a116f1943c?auto=format&fit=crop&w=800&q=80'); }
-        .img-odachi { background-image: url('https://images.unsplash.com/photo-1514539079130-25950c84af65?auto=format&fit=crop&w=800&q=80'); }
-        .img-daisho { background-image: url('https://images.unsplash.com/photo-1534234828563-025993049b4b?auto=format&fit=crop&w=800&q=80'); }
+        /* Кнопка и скрытый текст */
+        .history-btn {
+            background: transparent;
+            border: 1px solid #b91c1c;
+            color: #b91c1c;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+
+        .history-btn:hover {
+            background: #b91c1c;
+            color: #fff;
+        }
+
+        .history-content {
+            display: none; /* Скрыто по умолчанию */
+            margin-top: 15px;
+            padding: 15px;
+            background: #2a2a2a;
+            border-left: 3px solid #b91c1c;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
     </style>
 </head>
 <body>
 
     <nav>
-    <a href="index.html">Главная</a>
-    <a href="types.html" style="color: #b91c1c;">Виды</a>
-    <a href="stories.html">Истории</a>
+        <a href="index.html">Главная</a>
+        <a href="types.html" style="color: #b91c1c;">Виды</a>
+        <a href="stories.html">Истории</a>
     </nav>
 
     <div class="page-header">
-        <h1>Классификация клинков</h1>
-        <p>От церемониальных лезвий до полевых гигантов</p>
+        <h1>Арсенал Самурая</h1>
+        <p>Выберите клинок, чтобы узнать его боевую историю</p>
     </div>
 
     <div class="container">
 
         <div class="sword-card">
-            <div class="sword-img img-katana"></div>
+            <div class="sword-img-container">
+                <img src="https://images.unsplash.com/photo-1618336753974-aae8e04506aa?auto=format&fit=crop&w=800&q=80" alt="Katana">
+            </div>
             <div class="sword-info">
                 <h2>Катана (Katana)</h2>
-                <div class="specs">Длина клинка: 60-75 см | Ношение: Лезвием вверх</div>
-                <p>Классический самурайский меч, появившийся в период Муромати. В отличие от более старых мечей, катану носят за поясом (оби) лезвием вверх. Это позволяет выхватить меч и нанести удар одним слитным движением. Универсальное оружие пешего боя.</p>
+                <div class="specs">Длина: 60-75 см | Стиль: Пеший бой</div>
+                <p>Классический меч с умеренным изгибом. Носится лезвием вверх за поясом для мгновенного удара.</p>
+                
+                <button class="history-btn" onclick="toggleHistory('info-katana')">⚔ Где использовалась?</button>
+                
+                <div id="info-katana" class="history-content">
+                    <strong>Исторический контекст:</strong>
+                    <p>Катана стала королевой полей сражений в период Сэнгоку (Эпоха воюющих провинций). Она идеально подходила для ближнего боя в условиях тесноты, когда самураи сражались пешими. Позже, в мирную эпоху Эдо, она стала символом души воина и использовалась в уличных дуэлях.</p>
+                </div>
             </div>
         </div>
 
         <div class="sword-card">
-            <div class="sword-img img-tachi"></div>
+            <div class="sword-img-container">
+                <img src="https://images.unsplash.com/photo-1590634999975-35a116f1943c?auto=format&fit=crop&w=800&q=80" alt="Tachi">
+            </div>
             <div class="sword-info">
                 <h2>Тачи (Tachi)</h2>
-                <div class="specs">Длина клинка: 70-80 см | Ношение: Лезвием вниз</div>
-                <p>Предшественник катаны. Тачи был основным оружием всадников. Он имеет более сильный изгиб и носится на перевязи лезвием вниз. Это нужно, чтобы всадник мог удобно выхватить меч, сидя в седле, и нанести удар сверху вниз по пехоте.</p>
+                <div class="specs">Длина: 70-80 см | Стиль: Конный бой</div>
+                <p>Древний меч с сильным изгибом. Носится на подвесе лезвием вниз.</p>
+
+                <button class="history-btn" onclick="toggleHistory('info-tachi')">⚔ Где использовалась?</button>
+
+                <div id="info-tachi" class="history-content">
+                    <strong>Исторический контекст:</strong>
+                    <p>Тачи доминировал в эпоху Хэйан и Камакура (война Гэмпэй). Это оружие всадника: изгиб и длина позволяли эффективно рубить пехоту противника с седла. Часто богато украшался и использовался в придворных церемониях императора.</p>
+                </div>
             </div>
         </div>
 
         <div class="sword-card">
-            <div class="sword-img img-odachi"></div>
+            <div class="sword-img-container">
+                <img src="https://images.unsplash.com/photo-1563820257406-896860368361?auto=format&fit=crop&w=800&q=80" alt="Odachi display">
+            </div>
             <div class="sword-info">
-                <h2>Одачи и Нодачи</h2>
-                <div class="specs">Длина клинка: 90-180 см | Использование: Двуручное</div>
-                <p>«Большой меч» или «Полевой меч». Огромные клинки, которые носили за спиной или их носил оруженосец. Использовались для борьбы с кавалерией (подрубать ноги лошадям) или для пробивания строя пикинеров. Из-за размера ими очень сложно управлять.</p>
+                <h2>Одачи (Odachi)</h2>
+                <div class="specs">Длина: 90-180 см | Стиль: Прорыв строя / Анти-кавалерия</div>
+                <p>Гигантский полевой меч. Из-за размера его носили за спиной или доверяли оруженосцу.</p>
+
+                <button class="history-btn" onclick="toggleHistory('info-odachi')">⚔ Где использовалась?</button>
+
+                <div id="info-odachi" class="history-content">
+                    <strong>Исторический контекст:</strong>
+                    <p>Использовался штурмовыми отрядами для прорубания коридоров в строю пикинеров, а также для подрезания ног лошадям кавалерии. Часто такие мечи ковали не для боя, а как подношение храмам, чтобы продемонстрировать невероятное мастерство кузнеца.</p>
+                </div>
             </div>
         </div>
 
         <div class="sword-card">
-            <div class="sword-img img-daisho"></div>
+            <div class="sword-img-container">
+                <img src="https://images.unsplash.com/photo-1534234828563-025993049b4b?auto=format&fit=crop&w=800&q=80" alt="Daisho set">
+            </div>
             <div class="sword-info">
                 <h2>Дайшо (Daisho)</h2>
                 <div class="specs">Состав: Катана + Вакидзаси</div>
-                <p>Буквально «Большой и малый». Это не тип меча, а пара клинков, которую имел право носить только самурай. Длинный меч (катана) использовался на улице и в бою, а короткий (вакидзаси) оставался при воине всегда, даже внутри помещений, как оружие «последнего шанса» и защиты чести.</p>
+                <p>Пара мечей: длинный и короткий. Главный знак принадлежности к классу самураев.</p>
+
+                <button class="history-btn" onclick="toggleHistory('info-daisho')">⚔ Где использовалась?</button>
+
+                <div id="info-daisho" class="history-content">
+                    <strong>Исторический контекст:</strong>
+                    <p>Набор утвердился в эпоху Эдо. "Дайшо" буквально означает "Большой-малый". Если катану приходилось сдавать при входе в чужой дом, то короткий меч (вакидзаси) самурай не снимал никогда, даже во сне. Это оружие "последнего шанса" и защиты чести (сэппуку).</p>
+                </div>
             </div>
         </div>
 
     </div>
+
+    <script>
+        function toggleHistory(elementId) {
+            // Находим скрытый блок по ID
+            var content = document.getElementById(elementId);
+            
+            // Если он скрыт или пусто - показываем, иначе скрываем
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+    </script>
 
 </body>
 </html>
